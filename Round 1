@@ -1,0 +1,70 @@
+void display();      //function to calculate average of array
+float calcaverage (float num []);
+float calcsqaverage (float num []);
+void banner();
+
+int main()
+{
+banner();       // calls banner function
+display();      // calls display function
+return 0;
+
+void banner()
+{
+    printf("Kory Lockwood -- ET A240 Program #5 Arrays and Functions --- 2/17/2021\n \n");
+}
+void display()
+{
+      int x = 3;        //initialize array elements
+
+    float num[100];
+   float avgsqrtresult;
+   float avgresult;
+   float avgsqresult;
+    for (;;)            // infinite loop that will continue till a '0' is entered
+    {
+         int y = 0;     //y is initialized here because of the infinite for loop
+        while (y <= x)      // loop to enter 4 numbers into the array and stop
+        {
+                printf("%d. Enter number: ", y + 1);
+                scanf("%f", &num[y]);       //places numbers entered into array
+             if ( num [y] == 0)             //stops if a '0' is entered
+                {
+                    break;
+                }
+                y++;
+        }
+            avgsqresult = calcsqaverage (num);  // calculates the squares and then takes the average
+            avgsqrtresult = sqrt (avgsqresult);     //calculates the square root of the average of squares
+            avgresult = calcaverage (num);         // calculates the average of the 4 numbers entered
+                    if (num [y] == 0)           //another if statement that will break out of the display function and stop the program.
+                        {
+                            break;
+                        }
+            printf("Average = %.2f \t Average of Squares = %.2f \t Square Root of Average of Sqaures = %.2f\n \n" , avgresult, avgsqresult, avgsqrtresult  );       //prints the average of the 4 numbers entered
+    }
+}
+float calcaverage (float num [])            //calculates the average of the 4 numbers in the array
+{
+    float sum = 0.0;            //initialize variables
+    int z = 4;
+    float avg;
+     for (z = 0; z <4 ; ++z)         //loop to calculate average
+    {
+        sum += num [z];     //adds each number entered in the array to the sum
+    }
+        avg = sum / z;      //takes the average of the sum
+        return avg;         //returns the average
+}
+float calcsqaverage (float num [])      //calculates the squares of numbers in the array and then takes the average of said numbers
+{
+    float sum = 0.0;            //initialize variables
+    int z = 4;
+    float avg;
+     for (z = 0; z <4 ; ++z)         //loop to calculate square and average
+    {
+        sum += num [z] * num [z];       //takes the square and then adds each to the sum
+    }
+        avg = sum / z;      //takes the average of the sum
+        return avg;         //returns the average
+}
